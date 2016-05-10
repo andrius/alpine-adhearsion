@@ -7,6 +7,9 @@ group :asterisk do
   gem 'adhearsion-asterisk', github: 'adhearsion/adhearsion-asterisk', branch: 'adhearsion-3'
 end
 
+# comment out sinatra and remove config.ru if not needed
+gem 'sinatra', require: false
+
 group :api do
   gem 'hashie'
 
