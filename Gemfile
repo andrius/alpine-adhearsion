@@ -1,10 +1,9 @@
 source 'https://rubygems.org'
 
-# Adhearsion 3.0.0rc1
-gem 'adhearsion', github: 'adhearsion/adhearsion'
+gem 'adhearsion', '~> 2.6.2'
 
 group :asterisk do
-  gem 'adhearsion-asterisk', github: 'adhearsion/adhearsion-asterisk', branch: 'adhearsion-3'
+  gem 'adhearsion-asterisk'
 end
 
 group :api do
