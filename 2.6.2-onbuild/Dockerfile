@@ -1,5 +1,5 @@
 # vim:set ft=dockerfile:
-FROM ruby:alpine
+FROM andrius/alpine-ruby:latest
 
 MAINTAINER Andrius Kairiukstis <andrius@kairiukstis.com>
 
@@ -13,10 +13,10 @@ RUN bundle config build.nokogiri --use-system-libraries
 RUN bundle config git.allow_insecure true
 
 RUN apk add --update libstdc++ libxml2 libxslt libffi pcre zlib \
-      build-base git libxml2-dev libxslt-dev libffi-dev pcre-dev \
+      build-base git libxml2-dev libxslt-dev libffi-dev pcre-dev ruby-dev \
 &&  cd /tmp \
 &&  bundle install --system --retry 5 --jobs 4 \
-&&  apk del git build-base libxml2-dev libxslt-dev libffi-dev pcre-dev \
+&&  apk del git build-base libxml2-dev libxslt-dev libffi-dev pcre-dev ruby-dev \
 &&  rm -rf /var/cache/apk/* \
 &&  bundle exec ahn create /ahn \
 &&  mv -f Gemfile /ahn/ \
@@ -27,9 +27,9 @@ RUN apk add --update libstdc++ libxml2 libxslt libffi pcre zlib \
 
 # onbuild instructions - Gemfile and Gemfile.lock should present in current directory with Dockerfile
 ONBUILD ADD Gemfile* /ahn/
-ONBUILD RUN apk add --update build-base git libxml2-dev libxslt-dev libffi-dev pcre-dev \
+ONBUILD RUN apk add --update build-base git libxml2-dev libxslt-dev libffi-dev pcre-dev ruby-dev \
         &&  bundle install --system --retry 5 --jobs 4 \
-        &&  apk del build-base git libxml2-dev libxslt-dev libffi-dev pcre-dev \
+        &&  apk del build-base git libxml2-dev libxslt-dev libffi-dev pcre-dev ruby-dev \
         &&  rm -rf /var/cache/apk/*
 
 ADD docker-entrypoint.sh /docker-entrypoint.sh
