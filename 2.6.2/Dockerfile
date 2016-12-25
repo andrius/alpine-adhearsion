@@ -20,8 +20,7 @@ RUN apk add --update git build-base libstdc++ pcre libffi libxml2 libxslt zlib l
 &&  mv -f Gemfile /ahn/ \
 &&  mv -f Gemfile.lock /ahn/ \
 &&  cd /ahn \
-&&  bundle \
-&&  mv config.ru RENAME-TO-config.ru-FOR-WEB-APP
+&&  bundle
 
 # onbuild instructions - Gemfile and Gemfile.lock should present in current directory with Dockerfile
 ONBUILD ADD Gemfile* /ahn/
