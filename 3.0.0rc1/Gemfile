@@ -12,10 +12,6 @@ group :asterisk do
   gem 'adhearsion-asterisk', github: 'adhearsion/adhearsion-asterisk', branch: 'adhearsion-3'
 end
 
-group :web, :api do
-  gem 'sinatra', require: false
-end
-
 group :development, :test do
   gem 'rspec'
   gem 'rspec-expectations'

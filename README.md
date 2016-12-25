@@ -21,3 +21,9 @@ There is project generated with `ahn create` command, and it is located in /ahn 
 `config.ru` file renamed to remove sinatra dependency
 
 
+```
+ASTERISK_MANAGER_USERNAME=adhearsion
+ASTERISK_MANAGER_PASSWORD=somepassword
+ASTERISK_PORT=5038
+ASTERISK_HOST=asterisk
+```
