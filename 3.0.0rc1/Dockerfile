@@ -26,3 +26,4 @@ RUN apk add --update git build-base libstdc++ pcre libffi libxml2 libxslt zlib l
 # onbuild instructions - Gemfile and Gemfile.lock should present in current directory with Dockerfile
 ONBUILD ADD Gemfile* /ahn/
 ONBUILD RUN bundle install --system --retry 5 --jobs 4
+
