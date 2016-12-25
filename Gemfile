@@ -1,31 +1,23 @@
 source 'https://rubygems.org'
 
+group :alpine_linux do
+  gem 'ffi', '= 1.9.14'
+end
+
 # Adhearsion 3.0.0rc1
 gem 'adhearsion', github: 'adhearsion/adhearsion'
+gem 'matrioska', github: 'adhearsion/matrioska', branch: 'feature/adhearsion-3'
 
 group :asterisk do
   gem 'adhearsion-asterisk', github: 'adhearsion/adhearsion-asterisk', branch: 'adhearsion-3'
 end
 
-# comment out sinatra and remove config.ru if not needed
-gem 'sinatra', require: false
-
-group :api do
-  gem 'hashie'
-
-  gem 'faraday', '>= 0.9.2'
-  gem 'net-http-persistent'
-  gem 'faraday-http-cache'
-  gem 'json'
-  gem 'multi_xml'
+group :web, :api do
+  gem 'sinatra', require: false
 end
-
-# gem 'tzinfo'
-# gem 'tzinfo-data'
-# gem 'activesupport', require: %w( active_support/time_with_zone
-#                                   active_support/core_ext/time/zones)
 
 group :development, :test do
   gem 'rspec'
+  gem 'rspec-expectations'
 end
 
