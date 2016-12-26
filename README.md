@@ -26,7 +26,9 @@ It can't be used separate. Easiest way to proceed is to copy content of /ahn fol
 Run docker:
 
 ```
-docker run -ti --rm --name ahn andrius/alpine-adhearsion:3.0.0rc1-onbuild sh -c "while :; do echo 'Hit CTRL+C'; sleep 3; done"
+docker run -ti --rm --name ahn \
+  andrius/alpine-adhearsion:3.0.0rc1-onbuild \
+  sh -c "while :; do echo 'Hit CTRL+C'; sleep 3; done"
 ```
 
 Copy ahn folder (do it in another terminal tab):
