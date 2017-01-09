@@ -1,0 +1,18 @@
+source 'https://rubygems.org'
+
+# bug with ruby 2.4
+gem 'json', github: 'flori/json', branch: 'v1.8'
+
+# Adhearsion 3.0.0rc1
+gem 'adhearsion', github: 'adhearsion/adhearsion'
+gem 'matrioska', github: 'adhearsion/matrioska', branch: 'feature/adhearsion-3'
+
+group :asterisk do
+  gem 'adhearsion-asterisk', github: 'adhearsion/adhearsion-asterisk', branch: 'adhearsion-3'
+end
+
+group :development, :test do
+  gem 'rspec'
+  gem 'rspec-expectations'
+end
+
