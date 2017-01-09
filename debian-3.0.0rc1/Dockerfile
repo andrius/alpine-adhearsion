@@ -1,5 +1,5 @@
 # vim:set ft=dockerfile:
-FROM ruby:slim
+FROM ruby:2.3.3-slim
 
 MAINTAINER Andrius Kairiukstis <andrius@kairiukstis.com>
 
