@@ -14,7 +14,7 @@ This image is based on Alpine Linux image, which is only a 5MB image.
 
 ## What's included
 
-Adhearsion 3.0.0rc1-onbuild (relese candidate) and 2.6.2-onbuild (stable)
+Adhearsion 3.0.0rc1-onbuild (relese candidate) and 2.6.x-onbuild (stable)
 
 There is project generated with `ahn create` command, and it is located in /ahn folder.
 `config.ru` file renamed to remove sinatra dependency and start adhearsion (only in 3.0.0rc1).

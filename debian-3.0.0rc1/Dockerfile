@@ -21,6 +21,7 @@ RUN apt-get update \
 && mv -f .vendor /ahn/ || true \
 && cd /ahn \
 && bundle \
+&& rm -rf /usr/lib/ruby/gems/*/cache/* \
 && apt-get clean all && rm -rf /var/lib/apt/lists/* /usr/share/doc /usr/share/man* /tmp/* /var/tmp/*
 
 RUN mv config.ru RENAME-TO-config.ru-FOR-WEB-APP
