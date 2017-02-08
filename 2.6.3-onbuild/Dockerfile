@@ -25,6 +25,7 @@ RUN apk add --update libstdc++ libxml2 libxslt libffi pcre zlib \
 # onbuild instructions - Gemfile and Gemfile.lock should present in current directory with Dockerfile
 ONBUILD ADD Gemfile* /ahn/
 ONBUILD RUN apk add --update build-base git libxml2-dev libxslt-dev libffi-dev pcre-dev ruby-dev \
+        &&  cd /ahn \
         &&  bundle install --system --retry 5 --jobs 4 \
         &&  rm -rf /usr/lib/ruby/gems/*/cache/* \
         &&  apk del build-base git libxml2-dev libxslt-dev libffi-dev pcre-dev ruby-dev \
