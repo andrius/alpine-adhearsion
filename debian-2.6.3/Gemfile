@@ -1,19 +1,15 @@
 source 'https://rubygems.org'
 
-group :alpine_linux do
-  gem 'ffi', '= 1.9.14'
-end
-
 gem 'adhearsion', '= 2.6.3'
+gem 'adhearsion-i18n'
 gem 'matrioska'
-
-gem 'virginia'
 
 group :asterisk do
   gem 'adhearsion-asterisk'
 end
 
 group :web, :api do
+  gem 'virginia'
   gem 'sinatra', require: false
 end
 
