@@ -25,12 +25,13 @@ RUN apk add --update libstdc++ libxml2 libxslt libffi pcre zlib \
 # onbuild instructions - Gemfile and Gemfile.lock should present in current directory with Dockerfile
 ONBUILD ADD Gemfile      /ahn/Gemfile
 ONBUILD ADD Gemfile.lock /ahn/Gemfile.lock
-ONBUILD RUN apk add --update build-base git libxml2-dev libxslt-dev libffi-dev pcre-dev ruby-dev \
-        &&  cd /ahn \
-        &&  bundle install --system --retry 5 --jobs 4 \
-        &&  rm -rf /usr/lib/ruby/gems/*/cache/* \
-        &&  apk del build-base git libxml2-dev libxslt-dev libffi-dev pcre-dev ruby-dev \
-        &&  rm -rf /var/cache/apk/* /tmp
+ONBUILD RUN \
+   apk add --update build-base git libxml2-dev libxslt-dev libffi-dev pcre-dev ruby-dev \
+&& cd /ahn \
+&& bundle install --system --retry 5 --jobs 4 \
+&& rm -rf /usr/lib/ruby/gems/*/cache/* \
+&& apk del build-base git libxml2-dev libxslt-dev libffi-dev pcre-dev ruby-dev \
+&& rm -rf /var/cache/apk/* /tmp
 
 ADD docker-entrypoint.sh /docker-entrypoint.sh
 ENTRYPOINT ["/docker-entrypoint.sh"]
